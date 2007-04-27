@@ -16,7 +16,10 @@ generator 'system_settings' via a command such as;
 
 This plugin can also ensure that the application constant RAILS_ENV matches the 
 database environment by checking that SystemSetting['environment'] == RAILS_ENV.
-When the environment does not match an exception is thrown. 
+When the environment does not match an exception is thrown. To enable this functionality
+add the following line to your ApplicationController
+
+  self.check_environment
 
 == Details
 
