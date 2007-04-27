@@ -1,0 +1,29 @@
+= system-settings plugin for Rails
+
+system-settings is a plugin makes it easy to store application settings in the 
+database as key-value pairs. The data is stored in a table named system_settings
+with three columns; id, name and value.  The ActiveRecord model SystemSetting 
+allows access to the settings via array functions such as;
+
+SystemSetting['foo']                 # nil
+SystemSetting['foo'] = 'bar'
+SystemSetting['foo']                 # 'bar'
+
+You can generate the migration, a test and a sample fixture by running the 
+generator 'system_settings' via a command such as;
+
+  ruby script/generate system_settings
+
+This plugin can also ensure that the application constant RAILS_ENV matches the 
+database environment by checking that SystemSetting['environment'] == RAILS_ENV.
+When the environment does not match an exception is thrown. 
+
+== Details
+
+License: Released under the MIT license.
+Latest Version: http://www.realityforge.org/svn/public/code/system-settings/trunk/
+
+== Credits
+
+RedHill Consulting, Pty. Ltd. for the initial work on a similar plugin. 
+Peter Donald <peter at realityforge dot org>.
