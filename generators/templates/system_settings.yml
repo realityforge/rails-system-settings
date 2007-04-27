@@ -1,4 +1,0 @@
-s_environment:
-  id: 1
-  name: 'environment'
-  value: '<%= ENV['SELECTED_ENV'] || ENV['RAILS_ENV'] %>'
