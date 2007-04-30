@@ -14,6 +14,11 @@ generator 'system_settings' via a command such as;
 
   ruby script/generate system_settings
 
+The plugin can also return the version of the database. The version is made up 
+of the version string extracted from the schema_info table combined with the 
+SystemSetting['minor.version'] if it exists. The name of the method is db_version
+and it is injected into ActiveController:Base and exposed as a helper method. 
+
 This plugin can also ensure that the application constant RAILS_ENV matches the 
 database environment by checking that SystemSetting['environment'] == RAILS_ENV.
 When the environment does not match an exception is thrown. To enable this functionality
