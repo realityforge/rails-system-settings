@@ -1,0 +1,6 @@
+Description:
+    The system_settings generator creates a migration for system settings table
+    used by SystemSetting class.
+
+    The generator creates a migration class in db/migrate prefixed by its number in the
+    queue, a unit test suite in test/units and a fixture in test/fixtures.

@@ -1,0 +1,12 @@
+Description:
+    The sysinfo_controller generator creates stubs for a new sysinfo controller
+    and the show action. The sysinfo controller displays basic system, database
+    and environment settings.
+
+    The generator takes a controller name that will default to 'sysinfo' unless
+    otherwise specified. Modules are specified by prefixing controller name
+    with 'module/'.
+
+    The generator creates a controller class in app/controllers with view
+    templates in app/views/controller_name, and a functional test suite in
+    test/functional.
