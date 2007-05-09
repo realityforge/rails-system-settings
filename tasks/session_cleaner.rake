@@ -1,5 +1,4 @@
 desc "Remove stale sessions"
-task 'db:session:remove_stale' => :environment do
-  require 'session_cleaner'
+task 'db:sessions:remove_stale' => :environment do
   SessionCleaner::remove_stale_sessions
 end
