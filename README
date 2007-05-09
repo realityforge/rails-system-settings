@@ -26,6 +26,11 @@ add the following line to your ApplicationController
 
   self.check_environment
 
+The plugin also provides a generator for generating a controller that can display system
+information via a command such as;
+
+  ruby script/generate sysinfo_controller
+
 == Details
 
 License: Released under the MIT license.
