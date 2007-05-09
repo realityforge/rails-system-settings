@@ -1,0 +1,64 @@
+<div class="sysinfo">
+  <h2>Environment Info</h2>
+  <table>
+    <tr>
+      <th>System Time</th>
+      <td><%%= Time.now %></td>
+    </tr>
+    <tr>
+      <th>Application Directory</th>
+      <td><%%= File.expand_path(RAILS_ROOT) %></td>
+    </tr>
+    <tr>
+      <th>Application Environment</th>
+      <td><%%= RAILS_ENV %></td>
+    </tr>
+    <tr>
+      <th>Ruby Version</th>
+      <td><%%= ::RUBY_VERSION %></td>
+    </tr>
+    <tr>
+      <th>Ruby Platform</th>
+      <td><%%= RUBY_PLATFORM %></td>
+    </tr>
+    <tr>
+      <th>Ruby Release Date</th>
+      <td><%%= RUBY_RELEASE_DATE %></td>
+    </tr>
+  </table>
+  <h2>Database Info</h2>
+  <table>
+    <tr>
+      <th>Database Schema Version</th>
+      <td><%%= DbVersion.db_version %></td>
+    </tr>
+    <tr>
+      <th>Database Environment</th>
+      <td><%%= SystemSetting['environment'] %></td>
+    </tr>
+    <%% config = ActiveRecord::Base.configurations[RAILS_ENV] %>
+    <tr>
+      <th>Database Adapter</th>
+      <td><%%= config['adapter'] %></td>
+    </tr>
+    <%% config.each_pair do |k,v| %>
+    <%% if ('password' != k and 'adapter' != k)%>
+    <tr>
+      <th>Database <%%= k.capitalize %></th>
+      <td><%%= v %></td>
+    </tr>
+    <%% end %>
+    <%% end %>
+  </table>
+  <h2>Session Info</h2>
+  <table>
+    <tr>
+      <th>Session Count</th>
+      <td><%%= CGI::Session::ActiveRecordStore::Session.count %></td>
+    </tr>
+    <tr>
+      <th>Session Timeout</th>
+      <td><%%= SystemSetting['session.timeout'].to_i %>mins</td>
+    </tr>
+  </table>
+</div>
