@@ -1,0 +1,51 @@
+- @page_title = "System Info"
+.sysinfo
+  %h2 Environment Info
+  %table
+    %tr
+      %th System Time
+      %td= Time.now
+    %tr
+      %th Application Directory
+      %td= File.expand_path(RAILS_ROOT)
+    %tr
+      %th Application Environment
+      %td= RAILS_ENV
+    %tr
+      %th Ruby Version
+      %td= ::RUBY_VERSION
+    %tr
+      %th Ruby Platform
+      %td= RUBY_PLATFORM
+    %tr
+      %th Ruby Release Date
+      %td= RUBY_RELEASE_DATE
+  %h2 Database Info
+  %table
+    %tr
+      %th Database Schema Version
+      %td= DbVersion.db_version
+    %tr
+      %th Database Environment
+      %td= SystemSetting['environment']
+    - config = ActiveRecord::Base.configurations[RAILS_ENV]
+    %tr
+      %th Database Adapter
+      %td= config['adapter']
+    - config.each_pair do |k,v|
+      - if ('password' != k and 'adapter' != k)
+        %tr
+          %th
+            Database
+            = k.capitalize
+          %td= v
+  %h2 Session Info
+  %table
+    %tr
+      %th Session Count
+      %td= CGI::Session::ActiveRecordStore::Session.count
+    %tr
+      %th Session Timeout
+      %td
+        = SystemSetting['session.timeout'].to_i
+        mins

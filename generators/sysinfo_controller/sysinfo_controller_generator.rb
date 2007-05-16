@@ -18,11 +18,16 @@ class SysinfoControllerGenerator < Rails::Generator::NamedBase
                     File.join('app/controllers',
                               class_path,
                               "#{file_name}_controller.rb")
-        m.template 'show.rhtml',
-                    File.join('app/views',
-                              class_path,
-                              file_name,
-                              "show.rhtml")
+        m.file 'show.rhtml',
+               File.join('app/views',
+                         class_path,
+                         file_name,
+                         'show.rhtml')
+        m.file 'show.haml',
+               File.join('app/views',
+                         class_path,
+                         file_name,
+                         'show.haml')
         m.template 'functional_test.rb',
                     File.join('test/functional',
                               class_path,
