@@ -1,25 +1,25 @@
 = system-settings plugin for Rails
 
-system-settings is a plugin makes it easy to store application settings in the 
+system-settings is a plugin makes it easy to store application settings in the
 database as key-value pairs. The data is stored in a table named system_settings
-with three columns; id, name and value.  The ActiveRecord model SystemSetting 
+with three columns; id, name and value.  The ActiveRecord model SystemSetting
 allows access to the settings via array functions such as;
 
 SystemSetting['foo']                 # nil
 SystemSetting['foo'] = 'bar'
 SystemSetting['foo']                 # 'bar'
 
-You can generate the migration, a test and a sample fixture by running the 
+You can generate the migration, a test and a sample fixture by running the
 generator 'system_settings' via a command such as;
 
   ruby script/generate system_settings
 
-The plugin can also return the version of the database. The version is made up 
-of the version string extracted from the schema_info table combined with the 
+The plugin can also return the version of the database. The version is made up
+of the version string extracted from the schema_info table combined with the
 SystemSetting['minor.version'] if it exists. The name of the method is db_version
-and it is injected into ActiveController:Base and exposed as a helper method. 
+and it is injected into ActiveController:Base and exposed as a helper method.
 
-This plugin can also ensure that the application constant RAILS_ENV matches the 
+This plugin can also ensure that the application constant RAILS_ENV matches the
 database environment by checking that SystemSetting['environment'] == RAILS_ENV.
 When the environment does not match an exception is thrown. To enable this functionality
 add the following line to your ApplicationController
@@ -38,5 +38,5 @@ Latest Version: http://www.realityforge.org/svn/public/code/system-settings/trun
 
 == Credits
 
-RedHill Consulting, Pty. Ltd. for the initial work on a similar plugin. 
+RedHill Consulting, Pty. Ltd. for the initial work on a similar plugin.
 Peter Donald <peter at realityforge dot org>.
